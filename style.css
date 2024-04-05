@@ -21,6 +21,7 @@ html, body{
     font-family: var(--font-family);
     background: linear-gradient(to right, #9796f0, #fbc7d4);
     overflow: hidden;
+    height: 100%;
 }
 .container{
     width: max-content;
@@ -32,7 +33,7 @@ html, body{
     top: 10%;
     right: 0%;
     width: 100%;
-    height: 100%;
+    height: 100%;    
 }
 .calendar{
     height: 610px;
@@ -95,7 +96,7 @@ html, body{
     border-radius: 10px;
     cursor: pointer;
 }
-.month.picker:hover{
+.month-picker:hover{
     background-color: var(--color-hover);
 }
 .month-picker:hover{
@@ -130,10 +131,10 @@ html, body{
 }
 #year:hover{
     cursor: pointer;
-    transform: scae(1.2);
+    transform: scale(1.2);
     transition: all 0.2s ease-in-out;
 }
-.calendar-body div span{
+.calendar-days div span{
     position: absolute;
 }
 .calendar-days div:hover{
@@ -141,6 +142,11 @@ html, body{
     background-color: #fbc7d4;
     border-radius: 20%;
     color: var(--dark-text);
+}
+.calendar-days div.current-date {
+    color: var(--dark-text);
+    background-color: var(--light-btn);
+    border-radius: 20%;
 }
 .month-list{
     position: relative;
@@ -170,13 +176,13 @@ html, body{
     transform: scale(0.9);
     transition: all 0-2s ease-in-out;
 }
-.month-list .show{
+.month-list.show{
     visibility: visible;
     pointer-events: visible;
-    transition: 0.6 ease-in-out;
+    transition: 0.6s ease-in-out;
     animation: to-left .71s forwards;
 }
-.month-list:hideonce{
+.month-list.hideonce{
     visibility: hidden;
 }
 .month-list.hide{
@@ -214,7 +220,7 @@ html, body{
     font-size: 1.5rem;
 }
 .time-formate.hideTime{
-    animation: hidetime (1.5s forwards);
+    animation: hidetime 1.5s forwards;
 }
 .day-text-formate.hidetime{
     animation: hidetime 1.5s forwards;
@@ -234,23 +240,23 @@ html, body{
 @keyframes to-top{
     0%{
         transform: translateY(0);
-        opacity: 1;
+        opacity: 0;
     }100%{
         transform: translateY(100%);
         opacity: 1;
     }
 }
-@keyframes to-Left{
+@keyframes to-left{
     0%{
         transform: translateX(230%);
         opacity: 1;
     }100%{
-        transform: translateX(230%);
+        transform: translateX(0);
         opacity: 1;
     }
 }
 @keyframes to-right{
-    0%{
+    10%{
         transform: translateX(0%);
         opacity: 1;
     }100%{
